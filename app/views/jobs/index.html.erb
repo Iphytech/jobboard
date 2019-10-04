@@ -1,0 +1,33 @@
+<div class="container">
+<div class="row">
+<div class="col-4">
+<ul class="list-group">
+<%= link_to 'All', jobs_path, class: 'list-group-item' %>
+<%= link_to 'Full-time', jobs_path(job_type: "Full-time"), class: 'list-group-item' %>
+<%= link_to 'Part-time', jobs_path(job_type: "Part-time"), class: 'list-group-item' %>
+<%= link_to 'Freelance', jobs_path(job_type: "Freelance"), class: 'list-group-item ' %>
+<%= link_to 'Contract', jobs_path(job_type: "Contract"), class: 'list-group-item ' %>
+</ul>
+</div >
+<div class="col-8">
+<ul id="timeline">
+   <% @jobs.each do |job| %>
+<a href="#">
+  <li class="listing clearfix">
+  <div class="image-wrapper">
+  <%= image_tag(job.reduce_image_size ) if job.image.attached? %>
+  </div>
+    <div class="info">
+      <span class="job_title"><%= link_to job.title, job %></span>
+      <span class="job_info"><%= sanitize(job.description.truncate(100, separator: '</p>')) %></span>&bull;<span><%= job.company %></span>&bull;<span><%= job.location %></span>&bull;<span>Posted <%= time_ago_in_words(job.created_at) %> ago</span>
+    </div>
+    <span class="job_type  fulltime"><%= job.job_type %></span> 
+    
+    
+
+  </li>
+</a>
+<% end %>
+</ul>
+</div>
+</div>

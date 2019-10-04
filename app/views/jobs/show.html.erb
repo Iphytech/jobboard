@@ -1,0 +1,67 @@
+<div class="container">
+<div class="row">
+<div class="col-2"> <%= image_tag(@job.reduce_image_size ) if @job.image.attached? %></div>
+<div class="col-8">
+
+<div >
+  <strong>Title:</strong>
+  <%= @job.title %>
+</div>
+
+<div>
+  <strong>Description:</strong>
+  <%= @job.description %>
+</div>
+
+<div>
+  <strong>Company url:</strong>
+  <%= @job.company_url %>
+</div>
+
+<div>
+  <strong>Job type:</strong>
+  <%= @job.job_type %>
+</div>
+
+<div>
+  <strong>Location:</strong>
+  <%= @job.location %>
+</div>
+
+<div>
+  <strong>Company:</strong>
+  <%= @job.company %>
+</div>
+
+<div>
+<% if @job.remote? %>
+<strong>remote option</strong>
+  <p>Yes</p>
+  <%else %>
+  <h5>No</h5>
+  <% end %>
+</div>
+
+<div>
+  <strong>Posted by</strong>
+  <%= @job.user.name %>
+</div>
+
+   <%= link_to 'Apply to this job', @job.apply_url, class:"btn btn-lg btn-primary" %>
+
+   <br>
+   <hr>
+
+
+<% if current_user == @job.user %>
+<%= link_to 'Edit', edit_job_path(@job) , class: 'btn btn-sm btn-info' %> |
+<%= link_to 'Delete', job_path , method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-sm btn-danger'%>| 
+<%= link_to 'Back', jobs_path , class: 'btn btn-sm btn-info' %>
+
+<% else %>
+<%= link_to 'Back', jobs_path , class: 'btn btn-sm btn-info' %>
+<% end %>
+</div>
+<div class="col-2"></div>
+</div>
+</div>

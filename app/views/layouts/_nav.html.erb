@@ -1,0 +1,19 @@
+  <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container"><%= link_to 'Job Board', root_path, class: 'navbar brand' %><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto"></ul><span class="navbar-text actions"> 
+                <% if current_user %>
+                <%= link_to 'Post job', new_job_path, class: 'login' %> 
+                <%= link_to 'Edit profile', edit_user_registration_path, class: 'login' %> 
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete,  class: 'btn btn-danger btn-delete'%>
+                <% else %>
+                <%= link_to 'Login',  new_user_session_path, class: 'login' %> 
+                <%= link_to 'Register',  new_user_registration_path, class: 'btn btn-light action-button' %>
+                <% end %>
+                </span></div>
+        </div>
+    </nav>
+
+    
+     
