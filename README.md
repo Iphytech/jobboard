@@ -1,24 +1,35 @@
-# README
+# RAILS JOB BOARD
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a clone of [Remote ok](https://remoteok.io)
 
-Things you may want to cover:
+### Getting started
 
-* Ruby version
+Clone this repo and Create DB
 
-* System dependencies
 
-* Configuration
+```bash
+git clone https://github.com/Iphytech/jobboard.git
+cd jobboard
+rails db:create
+rails db:migrate
+```
 
-* Database creation
+### Install Dependencies and Do Configuration 
 
-* Database initialization
+```bash
+bundle install
+```
+* Setup Bootstrap 
+* Setup Simple form with Bootstrap 
+* Setup Devise
+* Setup Active Storage and mini magick
 
-* How to run the test suite
+### Run the application
 
-* Services (job queues, cache servers, search engines, etc.)
+To run the application, start it as a normal Rails app:
 
-* Deployment instructions
+```bash
+rails server
+```
 
-* ...
+Then visit [http://localhost:3000](http://localhost:3000).
